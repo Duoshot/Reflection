@@ -1,3 +1,5 @@
+import java.lang.reflect.*;
+import java.lang.reflect.Method;
 import java.lang.reflect.Field;
 import java.util.Enumeration;
 import java.util.Vector;
@@ -12,8 +14,38 @@ public class Inspector {
 		Vector objectsToInspect = new Vector();
 		Class ObjClass = obj.getClass();
 
-		System.out.println("inside inspector: " + obj + " (recursive = "+recursive+")");
+		System.out.println("	Inside inspector: " + obj + " (recursive = "+recursive+")");
 		
+		
+		//get class name
+		String className = ObjClass.getName();
+		System.out.println("	Current Class: " + className);
+		
+		//get declaring class 
+		Class declaringClass = ObjClass.getDeclaringClass();
+		System.out.println("	Declaring Class: " + declaringClass);
+		
+		
+		//get first super class
+		Class superClass = ObjClass.getSuperclass();
+		System.out.println("	Super Class: " + superClass);
+		
+		//get interfaces
+		Class[] interfaces = ObjClass.getInterfaces();
+		if(interfaces.length > 0)
+		{
+					
+			for(int i = 0; i < interfaces.length; i++)
+			{
+				System.out.println("	Interface [" + i + "]: " + interfaces[i]);
+			}
+		}
+		else
+		{
+			System.out.println("	Interface: This class has no interfaces");
+		}
+				
+			
 		//inspect the current class
 		inspectFields(obj, ObjClass,objectsToInspect);
 		
