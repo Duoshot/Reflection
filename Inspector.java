@@ -44,14 +44,66 @@ public class Inspector {
 		{
 			System.out.println("	Interface: This class has no interfaces");
 		}
-				
+		
+		//for (Class inter : ObjClass.getInterfaces())
+		//{
+		//	System.out.println("Implements Class: " + inter);
+		//}
+		
+		//get methods
+		Method[] methods = ObjClass.getDeclaredMethods();
+		for(int i = 0; i < methods.length; i++)
+		{
+			//System.out.println("Method: " + methods[i]);
+			//method name
+			System.out.println("	Method name: " + methods[i].getName());
 			
+			//exceptions thrown
+			Class[] exception = methods[i].getExceptionTypes();
+			for(int j = 0; j < exception.length; j++)
+			{
+				System.out.println("		Exception thrown: " + exception[j].getName());
+			}
+			
+			//parameter types
+			Class[] parameters = methods[i].getParameterTypes();
+			for(int k = 0; k < parameters.length; k++)
+			{
+				System.out.println("		Parameters: " + parameters[k].getName());
+			}
+			
+			//return type
+			Class returnName = methods[i].getReturnType();
+			System.out.println("		Return type: " + returnName);
+			
+			//Modifier
+			int modifier = methods[i].getModifiers();
+			System.out.println("		Modifiers: " + Modifier.toString(modifier));
+			
+			
+			
+			
+		}
+		
+		//for (Method method: ObjClass.getMethods())
+		//{
+		//	System.out.println("Method: " + method);
+		//}
+		
+		
+		
 		//inspect the current class
+		//inspectInterfaces(obj, ObjClass, objectsToInspect);
 		inspectFields(obj, ObjClass,objectsToInspect);
 		
 		if(recursive)
 		    inspectFieldClasses( obj, ObjClass, objectsToInspect, recursive);
 		   
+	    }
+	    
+	    private void inspectInterfaces(Object obj, Class objClass, Vector objectsToInspect)
+	    {
+	    	//TODO
 	    }
 	    //-----------------------------------------------------------
 	    private void inspectFieldClasses(Object obj,Class ObjClass,
