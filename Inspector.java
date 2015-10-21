@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.lang.reflect.*;
 import java.lang.reflect.Method;
 import java.lang.reflect.Field;
@@ -7,7 +9,6 @@ import java.util.Vector;
 import java.util.*;
 
 public class Inspector {
-
 	
 	public Inspector() 
 	{ 
@@ -15,11 +16,10 @@ public class Inspector {
 
 	    //-----------------------------------------------------------
 	public void inspect(Object obj, boolean recursive)
-	{
+	{		
 		Vector objectsToInspect = new Vector();
 		Class ObjClass = obj.getClass();
 		inspect(obj, ObjClass, recursive);
-		   
 	}
 	
 	public void inspect(Object obj, Class ObjClass, boolean recursive)
@@ -58,6 +58,7 @@ public class Inspector {
 		Vector objectsToInspect = new Vector();
 		
 		Class superClass = ObjClass.getSuperclass();
+		Class[] superInterface = ObjClass.getInterfaces();
 		
 		System.out.println("");
 		System.out.println("	Inside inspector: " + ObjClass + " (recursive = "+recursive+")");
@@ -92,6 +93,19 @@ public class Inspector {
 				System.out.println("~~~~~~~~~~~~~~~~~~~~");
 				inspect(obj, superClass, recursive);
 			}
+			
+			if(superInterface.length>0)
+			{
+				for(int i = 0; i < superInterface.length;i++)
+				{
+					System.out.println("");
+					System.out.println("~~~~~~~~~~~~~~~~~~~~");
+					System.out.println("SuperInterface of: " + className);
+					System.out.println("~~~~~~~~~~~~~~~~~~~~");
+					inspect(obj, superInterface[i], recursive);
+				}
+			}
+			
 		}
 	}
 	
