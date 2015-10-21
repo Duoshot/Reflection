@@ -34,6 +34,10 @@ public class Inspector {
 		
 		//get fields
 		//type and modifiers
+		
+		System.out.println("");
+		System.out.println("\tFields: ");
+		
 		Field[] fields = ObjClass.getDeclaredFields();
 		
 		for(int i = 0; i < fields.length; i++)
@@ -43,13 +47,13 @@ public class Inspector {
 			
 			//System.out.println("Fields " + fields[i]);
 			String fName = fields[i].getName();
-			System.out.println("	Field name: " + fName);
+			System.out.println("\t\tName: " + fName);
 			
 			Class fType = fields[i].getType();
-			System.out.println("\t\tType: " + fType.getName());
+			System.out.println("\t\t\tType: " + fType.getName());
 			
 			int fMod = fields[i].getModifiers();
-			System.out.println("\t\tModifiers: " + Modifier.toString(fMod));
+			System.out.println("\t\t\tModifiers: " + Modifier.toString(fMod));
 			
 			Object value = null;
 			
@@ -66,17 +70,15 @@ public class Inspector {
 			{
 				for(int k = 0; k < Array.getLength(value); k++)
 				{
-					System.out.println("SOMETHING HERE? " + Array.get(value, k));
+					System.out.println("\t\t\tArray Element " + k + ": "+ Array.get(value, k));
 				}
 			}
-			System.out.println("\t\tValue: " + value);
+			else
+				System.out.println("\t\t\tValue: " + value);
 			
 		}
 		
-		
-		//inspect the current class
-		//inspectInterfaces(obj, ObjClass, objectsToInspect);
-		//inspectFields(obj, ObjClass,objectsToInspect);
+		inspectFields(obj, ObjClass,objectsToInspect);
 		
 		if(recursive)
 		    inspectFieldClasses( obj, ObjClass, objectsToInspect, recursive);
