@@ -26,42 +26,11 @@ public class Inspector {
 		Class superClass = ObjClass.getSuperclass();
 		System.out.println("	Super Class: " + superClass.getName());
 		
-		//get interfaces
 		inspectInterfaces(obj, ObjClass);
 		
 		inspectMethods(obj, ObjClass);
-		//get methods
-		
-		
-		//for (Method method: ObjClass.getMethods())
-		//{
-		//	System.out.println("Method: " + method);
-		//}
-		
-		//get constructors
-		Constructor[] constructors = ObjClass.getDeclaredConstructors();
-		
-		for(int i = 0; i < constructors.length; i++)
-		{
-			constructors[i].setAccessible(true);
-			
-			String cName = constructors[i].getName();
-			System.out.println("	Constructor name: " + cName);
-			
-			//parameters
-			Class[] parameters = constructors[i].getParameterTypes();
-			for(int j = 0; j < parameters.length; j++)
-			{
-				System.out.println("		Parameters: " + parameters[j].getName());
-			}
-			
-			
-			
-			//modifiers
-			int modifier = constructors[i].getModifiers();
-			System.out.println("		Modifiers: " + Modifier.toString(modifier));
-			
-		}
+
+		inspectConstructors(obj, ObjClass);
 		
 		//get fields
 		//type and modifiers
@@ -113,7 +82,8 @@ public class Inspector {
 		    inspectFieldClasses( obj, ObjClass, objectsToInspect, recursive);
 		   
 	}
-	    
+
+	/*--------------------------------------------------------------------*/
 	private void inspectInterfaces(Object obj, Class objClass)
 	{
 		System.out.println("");
@@ -135,10 +105,11 @@ public class Inspector {
 		
 	}
 	
+	/*-----------------------------------------------------------------------------*/
 	private void inspectMethods(Object obj, Class objClass)
 	{
 		System.out.println("");
-		System.out.println("\tMethods: ");
+		System.out.println("\tMethod(s): ");
 		
 		Method[] methods = objClass.getDeclaredMethods();
 		for(int i = 0; i < methods.length; i++)
@@ -172,6 +143,38 @@ public class Inspector {
 			
 		}
 	}
+	
+	//--------------------------------------------------------------------------
+	private void inspectConstructors(Object obj, Class ObjClass)
+	{
+		System.out.println("");
+		System.out.println("\tConstructor(s): ");
+		
+		Constructor[] constructors = ObjClass.getDeclaredConstructors();
+		
+		for(int i = 0; i < constructors.length; i++)
+		{
+			constructors[i].setAccessible(true);
+			
+			String cName = constructors[i].getName();
+			System.out.println("\t\tName: " + cName);
+			
+			//parameters
+			Class[] parameters = constructors[i].getParameterTypes();
+			for(int j = 0; j < parameters.length; j++)
+			{
+				System.out.println("\t\t\tParameters: " + parameters[j].getName());
+			}
+			
+			
+			
+			//modifiers
+			int modifier = constructors[i].getModifiers();
+			System.out.println("\t\t\tModifiers: " + Modifier.toString(modifier));
+			
+		}
+	}
+	
 	    //-----------------------------------------------------------
 	    private void inspectFieldClasses(Object obj, Class ObjClass, Vector objectsToInspect, boolean recursive)
 	    {
