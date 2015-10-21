@@ -24,9 +24,28 @@ public class Inspector {
 	
 	public void inspect(Object obj, Class ObjClass, boolean recursive)
 	{
+
 		if(ObjClass.isArray())
 		{
-			System.out.println("IT'S AN ARRAY");
+			System.out.println("\tARRAY");
+			System.out.println("\tArray Length: " + Array.getLength(obj));
+			if(Array.getLength(obj)>0)
+			{
+				
+				for(int i = 0; i < Array.getLength(obj); i++)
+				{
+					Object arrayObj = Array.get(obj, i);
+					if(arrayObj != null)
+					{
+						inspect(arrayObj, arrayObj.getClass(), recursive);
+					}
+					else
+					{
+						System.out.println("\t\tArray Element " + i + ": " + arrayObj);
+					}
+					
+				}
+			}
 		}
 		else
 		{
@@ -239,7 +258,6 @@ public class Inspector {
 				catch(Exception e) {}    
 //	    	
 				System.out.println("\t\t\tValue: " + value);
-
 			}
 		}
 		else
