@@ -29,39 +29,9 @@ public class Inspector {
 		//get interfaces
 		inspectInterfaces(obj, ObjClass);
 		
-		
+		inspectMethods(obj, ObjClass);
 		//get methods
-		Method[] methods = ObjClass.getDeclaredMethods();
-		for(int i = 0; i < methods.length; i++)
-		{
-			methods[i].setAccessible(true);
-			//System.out.println("Method: " + methods[i]);
-			//method name
-			System.out.println("	Method name: " + methods[i].getName());
-			
-			//exceptions thrown
-			Class[] exception = methods[i].getExceptionTypes();
-			for(int j = 0; j < exception.length; j++)
-			{
-				System.out.println("		Exception thrown: " + exception[j].getName());
-			}
-			
-			//parameter types
-			Class[] parameters = methods[i].getParameterTypes();
-			for(int k = 0; k < parameters.length; k++)
-			{
-				System.out.println("		Parameters: " + parameters[k].getName());
-			}
-			
-			//return type
-			Class returnName = methods[i].getReturnType();
-			System.out.println("		Return type: " + returnName.getName());
-			
-			//Modifier
-			int modifier = methods[i].getModifiers();
-			System.out.println("		Modifiers: " + Modifier.toString(modifier));
-			
-		}
+		
 		
 		//for (Method method: ObjClass.getMethods())
 		//{
@@ -146,18 +116,60 @@ public class Inspector {
 	    
 	private void inspectInterfaces(Object obj, Class objClass)
 	{
+		System.out.println("");
+		System.out.println("\tInterface(s): ");
+		
 	    Class[] interfaces = objClass.getInterfaces();
 		if(interfaces.length > 0)
 		{
 						
 			for(int i = 0; i < interfaces.length; i++)
 			{
-				System.out.println("	Interface [" + i + "]: " + interfaces[i]);
+				System.out.println("\t\t" + interfaces[i]);
 			}
 		}
 		else
 		{
-			System.out.println("	Interface: This class has no interfaces");
+			System.out.println("This class has no interfaces");
+		}
+		
+	}
+	
+	private void inspectMethods(Object obj, Class objClass)
+	{
+		System.out.println("");
+		System.out.println("\tMethods: ");
+		
+		Method[] methods = objClass.getDeclaredMethods();
+		for(int i = 0; i < methods.length; i++)
+		{
+			methods[i].setAccessible(true);
+			
+			//method name
+			System.out.println("\t\tName: " + methods[i].getName());
+			
+			//exceptions thrown
+			Class[] exception = methods[i].getExceptionTypes();
+			for(int j = 0; j < exception.length; j++)
+			{
+				System.out.println("\t\t\tException thrown: " + exception[j].getName());
+			}
+			
+			//parameter types
+			Class[] parameters = methods[i].getParameterTypes();
+			for(int k = 0; k < parameters.length; k++)
+			{
+				System.out.println("\t\t\tParameters: " + parameters[k].getName());
+			}
+			
+			//return type
+			Class returnName = methods[i].getReturnType();
+			System.out.println("\t\t\tReturn type: " + returnName.getName());
+			
+			//Modifier
+			int modifier = methods[i].getModifiers();
+			System.out.println("\t\t\tModifiers: " + Modifier.toString(modifier));
+			
 		}
 	}
 	    //-----------------------------------------------------------
