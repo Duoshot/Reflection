@@ -7,11 +7,11 @@ import java.util.Vector;
 
 public class Inspector {
 
-		public Inspector() { }
+	public Inspector() { }
 
 	    //-----------------------------------------------------------
-	    public void inspect(Object obj, boolean recursive)
-	    {
+	public void inspect(Object obj, boolean recursive)
+	{
 		Vector objectsToInspect = new Vector();
 		Class ObjClass = obj.getClass();
 
@@ -27,24 +27,8 @@ public class Inspector {
 		System.out.println("	Super Class: " + superClass.getName());
 		
 		//get interfaces
-		Class[] interfaces = ObjClass.getInterfaces();
-		if(interfaces.length > 0)
-		{
-					
-			for(int i = 0; i < interfaces.length; i++)
-			{
-				System.out.println("	Interface [" + i + "]: " + interfaces[i]);
-			}
-		}
-		else
-		{
-			System.out.println("	Interface: This class has no interfaces");
-		}
+		inspectInterfaces(obj, ObjClass);
 		
-		//for (Class inter : ObjClass.getInterfaces())
-		//{
-		//	System.out.println("Implements Class: " + inter);
-		//}
 		
 		//get methods
 		Method[] methods = ObjClass.getDeclaredMethods();
@@ -143,7 +127,7 @@ public class Inspector {
 			{
 				for(int k = 0; k < Array.getLength(value); k++)
 				{
-					System.out.println("SOMETHING HERE? ");
+					System.out.println("SOMETHING HERE? " + Array.get(value, k));
 				}
 			}
 			System.out.println("\t\tValue: " + value);
@@ -158,12 +142,24 @@ public class Inspector {
 		if(recursive)
 		    inspectFieldClasses( obj, ObjClass, objectsToInspect, recursive);
 		   
-	    }
+	}
 	    
-	    private void inspectInterfaces(Object obj, Class objClass, Vector objectsToInspect)
-	    {
-	    	//TODO
-	    }
+	private void inspectInterfaces(Object obj, Class objClass)
+	{
+	    Class[] interfaces = objClass.getInterfaces();
+		if(interfaces.length > 0)
+		{
+						
+			for(int i = 0; i < interfaces.length; i++)
+			{
+				System.out.println("	Interface [" + i + "]: " + interfaces[i]);
+			}
+		}
+		else
+		{
+			System.out.println("	Interface: This class has no interfaces");
+		}
+	}
 	    //-----------------------------------------------------------
 	    private void inspectFieldClasses(Object obj, Class ObjClass, Vector objectsToInspect, boolean recursive)
 	    {
