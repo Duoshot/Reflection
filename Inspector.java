@@ -21,11 +21,6 @@ public class Inspector {
 		String className = ObjClass.getName();
 		System.out.println("	Current Class: " + className);
 		
-		//get declaring class 
-		Class declaringClass = ObjClass.getDeclaringClass();
-		System.out.println("	Declaring Class: " + declaringClass);
-		
-		
 		//get first super class
 		Class superClass = ObjClass.getSuperclass();
 		System.out.println("	Super Class: " + superClass);
@@ -80,9 +75,6 @@ public class Inspector {
 			int modifier = methods[i].getModifiers();
 			System.out.println("		Modifiers: " + Modifier.toString(modifier));
 			
-			
-			
-			
 		}
 		
 		//for (Method method: ObjClass.getMethods())
@@ -91,6 +83,27 @@ public class Inspector {
 		//}
 		
 		
+		Constructor[] constructors = ObjClass.getDeclaredConstructors();
+		
+		for(int i = 0; i < constructors.length; i++)
+		{
+			String cName = constructors[i].getName();
+			System.out.println("	Constructor name: " + cName);
+			
+			//parameters
+			Class[] parameters = constructors[i].getParameterTypes();
+			for(int j = 0; j < parameters.length; j++)
+			{
+				System.out.println("		Parameters: " + parameters[j].getName());
+			}
+			
+			
+			
+			//modifiers
+			int modifier = constructors[i].getModifiers();
+			System.out.println("		Modifiers: " + Modifier.toString(modifier));
+			
+		}
 		
 		//inspect the current class
 		//inspectInterfaces(obj, ObjClass, objectsToInspect);
