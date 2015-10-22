@@ -34,7 +34,7 @@ public class Inspector {
 	}
 
 	    //-----------------------------------------------------------
-	public void inspect(Object obj, boolean recursive) throws FileNotFoundException
+	public void inspect(Object obj, boolean recursive)
 	{
 		
 		Vector objectsToInspect = new Vector();
@@ -48,37 +48,15 @@ public class Inspector {
 
 		if(ObjClass.isArray())
 		{
-			printer.println("\tARRAY");
-			printer.println("\tArray Length: " + Array.getLength(obj));
-			if(Array.getLength(obj)>0)
-			{
-				
-				for(int i = 0; i < Array.getLength(obj); i++)
-				{
-					Object arrayObj = Array.get(obj, i);
-					printer.println("");
-					printer.println("\t\tArray Element " + i + ": " + arrayObj);
-					if(arrayObj != null)
-					{
-						
-						inspect(arrayObj, arrayObj.getClass(), recursive);
-						
-					}
-					else
-					{
-						printer.println("\t\tArray Element is null");
-					}
-					
-				}
-			}
+			inspectArray(obj, ObjClass, recursive);
 		}
 		else
 		{
-			inspectObject(obj, ObjClass, recursive);
+			inspectClass(obj, ObjClass, recursive);
 		}
 	}
 	
-	private void inspectObject(Object obj, Class ObjClass, boolean recursive)
+	private void inspectClass(Object obj, Class ObjClass, boolean recursive)
 	{
 		Vector objectsToInspect = new Vector();
 		
@@ -90,7 +68,7 @@ public class Inspector {
 	
 		String className = ObjClass.getName();
 		printer.println("");
-		printer.println("Current Class: " + className);
+		printer.println("@   Current Class: " + className);
 		
 		//get first super class
 		//Class superClass = ObjClass.getSuperclass();
@@ -135,6 +113,32 @@ public class Inspector {
 		}
 	}
 	
+	private void inspectArray(Object obj, Class ObjClass, boolean recursive)
+	{
+		printer.println("\tARRAY");
+		printer.println("\tArray Length: " + Array.getLength(obj));
+		if(Array.getLength(obj)>0)
+		{
+			
+			for(int i = 0; i < Array.getLength(obj); i++)
+			{
+				Object arrayObj = Array.get(obj, i);
+				printer.println("");
+				printer.println("\t\tArray Element " + i + ": " + arrayObj);
+				if(arrayObj != null)
+				{
+					
+					inspect(arrayObj, arrayObj.getClass(), recursive);
+					
+				}
+				else
+				{
+					printer.println("\t\tArray Element is null");
+				}
+				
+			}
+		}
+	}
 
 	/*--------------------------------------------------------------------*/
 	private void inspectInterfaces(Class ObjClass)
@@ -218,6 +222,7 @@ public class Inspector {
 			{
 				constructors[i].setAccessible(true);
 			
+				//name
 				String cName = constructors[i].getName();
 				printer.println("\t\tName: " + cName);
 			
@@ -230,7 +235,6 @@ public class Inspector {
 				//modifiers
 				int modifier = constructors[i].getModifiers();
 				printer.println("\t\t\tModifiers: " + Modifier.toString(modifier));
-			
 			}
 		}
 		else
