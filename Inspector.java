@@ -28,7 +28,8 @@ public class Inspector {
 	//print to file
 	private FileWriter fw;
 	private BufferedWriter bw;
-	File file = new File("test.txt");
+	File file = new File("NonRecursiveOutput.txt");	//CHANGE THIS NAME FOR DIFFERENT FILE.
+	//BUFFERED WRITER CONTINUOUSLY WRITES. SO YOU HAVE TO DELETE THE OLD FILE IF YOU WANT A NEW ONE
 	
 	public Inspector()
 	{ 
@@ -61,7 +62,7 @@ public class Inspector {
 	}
 	
 //-------------------------------------------------------------------------
-	private void inspectClass(Object obj, Class ObjClass, boolean recursive) throws IOException
+	public void inspectClass(Object obj, Class ObjClass, boolean recursive) throws IOException
 	{
 		Vector objectsToInspect = new Vector();
 		
@@ -122,7 +123,7 @@ public class Inspector {
 	}
 	
 //----------------------------------------------------------------------
-	private void inspectArray(Object obj, Class ObjClass, boolean recursive) throws IOException
+	public void inspectArray(Object obj, Class ObjClass, boolean recursive) throws IOException
 	{
 		bw.write("\tARRAY" + "\n");
 		bw.write("\tArray Length: " + Array.getLength(obj) + "\n");
@@ -150,7 +151,7 @@ public class Inspector {
 	}
 
 /*--------------------------------------------------------------------*/
-	private void inspectInterfaces(Class ObjClass) throws IOException
+	public void inspectInterfaces(Class ObjClass) throws IOException
 	{
 		bw.write("" + "\n");
 		bw.write("\tInterface(s): " + "\n");
@@ -172,7 +173,7 @@ public class Inspector {
 	}
 	
 /*-----------------------------------------------------------------------------*/
-	private void inspectMethods(Class ObjClass) throws IOException
+	public void inspectMethods(Class ObjClass) throws IOException
 	{
 		bw.write("" + "\n");
 		bw.write("\tMethod(s): " + "\n");
@@ -218,7 +219,7 @@ public class Inspector {
 	}
 	
 //--------------------------------------------------------------------------
-	private void inspectConstructors(Class ObjClass) throws IOException
+	public void inspectConstructors(Class ObjClass) throws IOException
 	{
 		bw.write("" + "\n");
 		bw.write("\tConstructor(s): " + "\n");
@@ -253,7 +254,7 @@ public class Inspector {
 	}
 	
 //-----------------------------------------------------------
-	private void inspectFieldClasses(Object obj, Class ObjClass, Vector objectsToInspect, boolean recursive) throws IOException
+	public void inspectFieldClasses(Object obj, Class ObjClass, Vector objectsToInspect, boolean recursive) throws IOException
 	{		
 	    if(objectsToInspect.size() > 0 )
 	    {
@@ -279,7 +280,7 @@ public class Inspector {
 		}
 	}
 //-----------------------------------------------------------
-	private void inspectFields(Object obj, Class ObjClass, Vector objectsToInspect) throws IOException
+	public void inspectFields(Object obj, Class ObjClass, Vector objectsToInspect) throws IOException
 	{
 		Field[] fields = ObjClass.getDeclaredFields();
 		
