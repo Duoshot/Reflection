@@ -1,0 +1,1198 @@
+
+	Inside inspector: class ClassA (recursive = false)
+@   Current Class: ClassA	Immediate Super Class: java.lang.Object
+
+	Constructor(s): 
+		Name: ClassA
+			Modifiers: public
+		Name: ClassA
+			Parameters: int
+			Modifiers: public
+
+	Interface(s): 
+		interface java.io.Serializable
+		interface java.lang.Runnable
+
+	Fields: 
+		Name: val
+			Declaring Class: ClassA
+			Type: int
+			Modifiers: private
+			Value: 3
+		Name: val2
+			Declaring Class: ClassA
+			Type: double
+			Modifiers: private
+			Value: 0.2
+		Name: val3
+			Declaring Class: ClassA
+			Type: boolean
+			Modifiers: private
+			Value: true
+
+	Method(s): 
+		Name: run
+			Return type: void
+			Modifiers: public
+		Name: toString
+			Return type: java.lang.String
+			Modifiers: public
+		Name: setVal
+			Exception thrown: java.lang.Exception
+			Parameters: int
+			Return type: void
+			Modifiers: public
+		Name: getVal
+			Return type: int
+			Modifiers: public
+		Name: printSomething
+			Return type: void
+			Modifiers: private
+
+	Inside inspector: class ClassA (recursive = false)
+@   Current Class: ClassA	Immediate Super Class: java.lang.Object
+
+	Constructor(s): 
+		Name: ClassA
+			Modifiers: public
+		Name: ClassA
+			Parameters: int
+			Modifiers: public
+
+	Interface(s): 
+		interface java.io.Serializable
+		interface java.lang.Runnable
+
+	Fields: 
+		Name: val
+			Declaring Class: ClassA
+			Type: int
+			Modifiers: private
+			Value: 12
+		Name: val2
+			Declaring Class: ClassA
+			Type: double
+			Modifiers: private
+			Value: 0.2
+		Name: val3
+			Declaring Class: ClassA
+			Type: boolean
+			Modifiers: private
+			Value: true
+
+	Method(s): 
+		Name: run
+			Return type: void
+			Modifiers: public
+		Name: toString
+			Return type: java.lang.String
+			Modifiers: public
+		Name: setVal
+			Exception thrown: java.lang.Exception
+			Parameters: int
+			Return type: void
+			Modifiers: public
+		Name: getVal
+			Return type: int
+			Modifiers: public
+		Name: printSomething
+			Return type: void
+			Modifiers: private
+
+	Inside inspector: class ClassB (recursive = false)
+@   Current Class: ClassB	Immediate Super Class: ClassC
+
+	Constructor(s): 
+		Name: ClassB
+			Modifiers: public
+
+	Interface(s): 
+		interface java.lang.Runnable
+
+	Fields: 
+		Name: val
+			Declaring Class: ClassB
+			Type: ClassA
+			Modifiers: private
+			Value: ClassA
+		Name: val2
+			Declaring Class: ClassB
+			Type: ClassA
+			Modifiers: private
+			Value: ClassA
+		Name: val3
+			Declaring Class: ClassB
+			Type: ClassA
+			Modifiers: private
+			Value: null
+
+	Method(s): 
+		Name: run
+			Return type: void
+			Modifiers: public
+		Name: toString
+			Return type: java.lang.String
+			Modifiers: public
+		Name: func3
+			Parameters: int
+			Return type: void
+			Modifiers: public
+
+	Inside inspector: class ClassD (recursive = false)
+@   Current Class: ClassD	Immediate Super Class: java.lang.Object
+
+	Constructor(s): 
+		Name: ClassD
+			Modifiers: public
+		Name: ClassD
+			Parameters: int
+			Modifiers: public
+
+	Interface(s): 
+		This class has no interfaces
+
+	Fields: 
+		Name: val
+			Declaring Class: ClassD
+			Type: ClassA
+			Modifiers: private
+			Value: ClassA
+		Name: val2
+			Declaring Class: ClassD
+			Type: ClassA
+			Modifiers: private static
+			Value: null
+		Name: val3
+			Declaring Class: ClassD
+			Type: int
+			Modifiers: private
+			Value: 32
+		Name: vallarray
+			Declaring Class: ClassD
+			Type: [LClassA;
+			Modifiers: private
+			Value: [LClassA;@6a92e96c
+
+	Method(s): 
+		Name: toString
+			Return type: java.lang.String
+			Modifiers: public
+		Name: getVal3
+			Return type: int
+			Modifiers: public
+
+	Inside inspector: class ClassD (recursive = false)
+@   Current Class: ClassD	Immediate Super Class: java.lang.Object
+
+	Constructor(s): 
+		Name: ClassD
+			Modifiers: public
+		Name: ClassD
+			Parameters: int
+			Modifiers: public
+
+	Interface(s): 
+		This class has no interfaces
+
+	Fields: 
+		Name: val
+			Declaring Class: ClassD
+			Type: ClassA
+			Modifiers: private
+			Value: ClassA
+		Name: val2
+			Declaring Class: ClassD
+			Type: ClassA
+			Modifiers: private static
+			Value: null
+		Name: val3
+			Declaring Class: ClassD
+			Type: int
+			Modifiers: private
+			Value: 34
+		Name: vallarray
+			Declaring Class: ClassD
+			Type: [LClassA;
+			Modifiers: private
+			Value: [LClassA;@531ae81d
+
+	Method(s): 
+		Name: toString
+			Return type: java.lang.String
+			Modifiers: public
+		Name: getVal3
+			Return type: int
+			Modifiers: public
+	ARRAY
+	Array Length: 12
+
+		Array Element 0: null
+		Array Element is null
+
+		Array Element 1: null
+		Array Element is null
+
+		Array Element 2: null
+		Array Element is null
+
+		Array Element 3: null
+		Array Element is null
+
+		Array Element 4: null
+		Array Element is null
+
+		Array Element 5: null
+		Array Element is null
+
+		Array Element 6: null
+		Array Element is null
+
+		Array Element 7: null
+		Array Element is null
+
+		Array Element 8: null
+		Array Element is null
+
+		Array Element 9: null
+		Array Element is null
+
+		Array Element 10: null
+		Array Element is null
+
+		Array Element 11: null
+		Array Element is null
+	ARRAY
+	Array Length: 12
+
+		Array Element 0: [LClassB;@456d3d51
+	ARRAY
+	Array Length: 12
+
+		Array Element 0: null
+		Array Element is null
+
+		Array Element 1: null
+		Array Element is null
+
+		Array Element 2: null
+		Array Element is null
+
+		Array Element 3: null
+		Array Element is null
+
+		Array Element 4: null
+		Array Element is null
+
+		Array Element 5: null
+		Array Element is null
+
+		Array Element 6: null
+		Array Element is null
+
+		Array Element 7: null
+		Array Element is null
+
+		Array Element 8: null
+		Array Element is null
+
+		Array Element 9: null
+		Array Element is null
+
+		Array Element 10: null
+		Array Element is null
+
+		Array Element 11: null
+		Array Element is null
+
+		Array Element 1: [LClassB;@6d4b473
+	ARRAY
+	Array Length: 12
+
+		Array Element 0: null
+		Array Element is null
+
+		Array Element 1: null
+		Array Element is null
+
+		Array Element 2: null
+		Array Element is null
+
+		Array Element 3: null
+		Array Element is null
+
+		Array Element 4: null
+		Array Element is null
+
+		Array Element 5: null
+		Array Element is null
+
+		Array Element 6: null
+		Array Element is null
+
+		Array Element 7: null
+		Array Element is null
+
+		Array Element 8: null
+		Array Element is null
+
+		Array Element 9: null
+		Array Element is null
+
+		Array Element 10: null
+		Array Element is null
+
+		Array Element 11: null
+		Array Element is null
+
+		Array Element 2: [LClassB;@7692ed85
+	ARRAY
+	Array Length: 12
+
+		Array Element 0: null
+		Array Element is null
+
+		Array Element 1: null
+		Array Element is null
+
+		Array Element 2: null
+		Array Element is null
+
+		Array Element 3: null
+		Array Element is null
+
+		Array Element 4: null
+		Array Element is null
+
+		Array Element 5: null
+		Array Element is null
+
+		Array Element 6: null
+		Array Element is null
+
+		Array Element 7: null
+		Array Element is null
+
+		Array Element 8: null
+		Array Element is null
+
+		Array Element 9: null
+		Array Element is null
+
+		Array Element 10: null
+		Array Element is null
+
+		Array Element 11: null
+		Array Element is null
+
+		Array Element 3: [LClassB;@2827f394
+	ARRAY
+	Array Length: 12
+
+		Array Element 0: null
+		Array Element is null
+
+		Array Element 1: null
+		Array Element is null
+
+		Array Element 2: null
+		Array Element is null
+
+		Array Element 3: null
+		Array Element is null
+
+		Array Element 4: null
+		Array Element is null
+
+		Array Element 5: null
+		Array Element is null
+
+		Array Element 6: null
+		Array Element is null
+
+		Array Element 7: null
+		Array Element is null
+
+		Array Element 8: null
+		Array Element is null
+
+		Array Element 9: null
+		Array Element is null
+
+		Array Element 10: null
+		Array Element is null
+
+		Array Element 11: null
+		Array Element is null
+
+		Array Element 4: [LClassB;@56e88e24
+	ARRAY
+	Array Length: 12
+
+		Array Element 0: null
+		Array Element is null
+
+		Array Element 1: null
+		Array Element is null
+
+		Array Element 2: null
+		Array Element is null
+
+		Array Element 3: null
+		Array Element is null
+
+		Array Element 4: null
+		Array Element is null
+
+		Array Element 5: null
+		Array Element is null
+
+		Array Element 6: null
+		Array Element is null
+
+		Array Element 7: null
+		Array Element is null
+
+		Array Element 8: null
+		Array Element is null
+
+		Array Element 9: null
+		Array Element is null
+
+		Array Element 10: null
+		Array Element is null
+
+		Array Element 11: null
+		Array Element is null
+
+		Array Element 5: [LClassB;@3dcc0a0f
+	ARRAY
+	Array Length: 12
+
+		Array Element 0: null
+		Array Element is null
+
+		Array Element 1: null
+		Array Element is null
+
+		Array Element 2: null
+		Array Element is null
+
+		Array Element 3: null
+		Array Element is null
+
+		Array Element 4: null
+		Array Element is null
+
+		Array Element 5: null
+		Array Element is null
+
+		Array Element 6: null
+		Array Element is null
+
+		Array Element 7: null
+		Array Element is null
+
+		Array Element 8: null
+		Array Element is null
+
+		Array Element 9: null
+		Array Element is null
+
+		Array Element 10: null
+		Array Element is null
+
+		Array Element 11: null
+		Array Element is null
+
+		Array Element 6: [LClassB;@1ea87e7b
+	ARRAY
+	Array Length: 12
+
+		Array Element 0: null
+		Array Element is null
+
+		Array Element 1: null
+		Array Element is null
+
+		Array Element 2: null
+		Array Element is null
+
+		Array Element 3: null
+		Array Element is null
+
+		Array Element 4: null
+		Array Element is null
+
+		Array Element 5: null
+		Array Element is null
+
+		Array Element 6: null
+		Array Element is null
+
+		Array Element 7: null
+		Array Element is null
+
+		Array Element 8: null
+		Array Element is null
+
+		Array Element 9: null
+		Array Element is null
+
+		Array Element 10: null
+		Array Element is null
+
+		Array Element 11: null
+		Array Element is null
+
+		Array Element 7: [LClassB;@4807ccf6
+	ARRAY
+	Array Length: 12
+
+		Array Element 0: null
+		Array Element is null
+
+		Array Element 1: null
+		Array Element is null
+
+		Array Element 2: null
+		Array Element is null
+
+		Array Element 3: null
+		Array Element is null
+
+		Array Element 4: null
+		Array Element is null
+
+		Array Element 5: null
+		Array Element is null
+
+		Array Element 6: null
+		Array Element is null
+
+		Array Element 7: null
+		Array Element is null
+
+		Array Element 8: null
+		Array Element is null
+
+		Array Element 9: null
+		Array Element is null
+
+		Array Element 10: null
+		Array Element is null
+
+		Array Element 11: null
+		Array Element is null
+
+		Array Element 8: [LClassB;@78214f6b
+	ARRAY
+	Array Length: 12
+
+		Array Element 0: null
+		Array Element is null
+
+		Array Element 1: null
+		Array Element is null
+
+		Array Element 2: null
+		Array Element is null
+
+		Array Element 3: null
+		Array Element is null
+
+		Array Element 4: null
+		Array Element is null
+
+		Array Element 5: null
+		Array Element is null
+
+		Array Element 6: null
+		Array Element is null
+
+		Array Element 7: null
+		Array Element is null
+
+		Array Element 8: null
+		Array Element is null
+
+		Array Element 9: null
+		Array Element is null
+
+		Array Element 10: null
+		Array Element is null
+
+		Array Element 11: null
+		Array Element is null
+
+		Array Element 9: [LClassB;@52e5376a
+	ARRAY
+	Array Length: 12
+
+		Array Element 0: null
+		Array Element is null
+
+		Array Element 1: null
+		Array Element is null
+
+		Array Element 2: null
+		Array Element is null
+
+		Array Element 3: null
+		Array Element is null
+
+		Array Element 4: null
+		Array Element is null
+
+		Array Element 5: null
+		Array Element is null
+
+		Array Element 6: null
+		Array Element is null
+
+		Array Element 7: null
+		Array Element is null
+
+		Array Element 8: null
+		Array Element is null
+
+		Array Element 9: null
+		Array Element is null
+
+		Array Element 10: null
+		Array Element is null
+
+		Array Element 11: null
+		Array Element is null
+
+		Array Element 10: [LClassB;@46993aaa
+	ARRAY
+	Array Length: 12
+
+		Array Element 0: null
+		Array Element is null
+
+		Array Element 1: null
+		Array Element is null
+
+		Array Element 2: null
+		Array Element is null
+
+		Array Element 3: null
+		Array Element is null
+
+		Array Element 4: null
+		Array Element is null
+
+		Array Element 5: null
+		Array Element is null
+
+		Array Element 6: null
+		Array Element is null
+
+		Array Element 7: null
+		Array Element is null
+
+		Array Element 8: null
+		Array Element is null
+
+		Array Element 9: null
+		Array Element is null
+
+		Array Element 10: null
+		Array Element is null
+
+		Array Element 11: null
+		Array Element is null
+
+		Array Element 11: [LClassB;@75da931b
+	ARRAY
+	Array Length: 12
+
+		Array Element 0: null
+		Array Element is null
+
+		Array Element 1: null
+		Array Element is null
+
+		Array Element 2: null
+		Array Element is null
+
+		Array Element 3: null
+		Array Element is null
+
+		Array Element 4: null
+		Array Element is null
+
+		Array Element 5: null
+		Array Element is null
+
+		Array Element 6: null
+		Array Element is null
+
+		Array Element 7: null
+		Array Element is null
+
+		Array Element 8: null
+		Array Element is null
+
+		Array Element 9: null
+		Array Element is null
+
+		Array Element 10: null
+		Array Element is null
+
+		Array Element 11: null
+		Array Element is null
+
+	Inside inspector: class java.lang.String (recursive = false)
+@   Current Class: java.lang.String	Immediate Super Class: java.lang.Object
+
+	Constructor(s): 
+		Name: java.lang.String
+			Parameters: [B
+			Modifiers: public
+		Name: java.lang.String
+			Parameters: [B
+			Parameters: int
+			Parameters: int
+			Modifiers: public
+		Name: java.lang.String
+			Parameters: [B
+			Parameters: java.nio.charset.Charset
+			Modifiers: public
+		Name: java.lang.String
+			Parameters: [B
+			Parameters: java.lang.String
+			Modifiers: public
+		Name: java.lang.String
+			Parameters: [B
+			Parameters: int
+			Parameters: int
+			Parameters: java.nio.charset.Charset
+			Modifiers: public
+		Name: java.lang.String
+			Parameters: int
+			Parameters: int
+			Parameters: [C
+			Modifiers: 
+		Name: java.lang.String
+			Parameters: [C
+			Parameters: boolean
+			Modifiers: 
+		Name: java.lang.String
+			Parameters: java.lang.StringBuilder
+			Modifiers: public
+		Name: java.lang.String
+			Parameters: java.lang.StringBuffer
+			Modifiers: public
+		Name: java.lang.String
+			Parameters: [I
+			Parameters: int
+			Parameters: int
+			Modifiers: public
+		Name: java.lang.String
+			Parameters: [C
+			Parameters: int
+			Parameters: int
+			Modifiers: public
+		Name: java.lang.String
+			Parameters: [C
+			Modifiers: public
+		Name: java.lang.String
+			Parameters: java.lang.String
+			Modifiers: public
+		Name: java.lang.String
+			Modifiers: public
+		Name: java.lang.String
+			Parameters: [B
+			Parameters: int
+			Parameters: int
+			Parameters: java.lang.String
+			Modifiers: public
+		Name: java.lang.String
+			Parameters: [B
+			Parameters: int
+			Modifiers: public
+		Name: java.lang.String
+			Parameters: [B
+			Parameters: int
+			Parameters: int
+			Parameters: int
+			Modifiers: public
+
+	Interface(s): 
+		interface java.io.Serializable
+		interface java.lang.Comparable
+		interface java.lang.CharSequence
+
+	Fields: 
+		Name: value
+			Declaring Class: java.lang.String
+			Type: [C
+			Modifiers: private final
+			Value: [C@302b2c81
+		Name: hash
+			Declaring Class: java.lang.String
+			Type: int
+			Modifiers: private
+			Value: 0
+		Name: serialVersionUID
+			Declaring Class: java.lang.String
+			Type: long
+			Modifiers: private static final
+			Value: -6849794470754667710
+		Name: serialPersistentFields
+			Declaring Class: java.lang.String
+			Type: [Ljava.io.ObjectStreamField;
+			Modifiers: private static final
+			Value: [Ljava.io.ObjectStreamField;@6ae6235d
+		Name: CASE_INSENSITIVE_ORDER
+			Declaring Class: java.lang.String
+			Type: java.util.Comparator
+			Modifiers: public static final
+			Value: java.lang.String$CaseInsensitiveComparator@2b1be57f
+		Name: HASHING_SEED
+			Declaring Class: java.lang.String
+			Type: int
+			Modifiers: private static final
+			Value: -1471815928
+		Name: hash32
+			Declaring Class: java.lang.String
+			Type: int
+			Modifiers: private transient
+			Value: 0
+
+	Method(s): 
+		Name: equals
+			Parameters: java.lang.Object
+			Return type: boolean
+			Modifiers: public
+		Name: toString
+			Return type: java.lang.String
+			Modifiers: public
+		Name: hashCode
+			Return type: int
+			Modifiers: public
+		Name: compareTo
+			Parameters: java.lang.Object
+			Return type: int
+			Modifiers: public volatile
+		Name: compareTo
+			Parameters: java.lang.String
+			Return type: int
+			Modifiers: public
+		Name: indexOf
+			Parameters: java.lang.String
+			Parameters: int
+			Return type: int
+			Modifiers: public
+		Name: indexOf
+			Parameters: int
+			Return type: int
+			Modifiers: public
+		Name: indexOf
+			Parameters: int
+			Parameters: int
+			Return type: int
+			Modifiers: public
+		Name: indexOf
+			Parameters: [C
+			Parameters: int
+			Parameters: int
+			Parameters: [C
+			Parameters: int
+			Parameters: int
+			Parameters: int
+			Return type: int
+			Modifiers: static
+		Name: indexOf
+			Parameters: java.lang.String
+			Return type: int
+			Modifiers: public
+		Name: valueOf
+			Parameters: float
+			Return type: java.lang.String
+			Modifiers: public static
+		Name: valueOf
+			Parameters: double
+			Return type: java.lang.String
+			Modifiers: public static
+		Name: valueOf
+			Parameters: boolean
+			Return type: java.lang.String
+			Modifiers: public static
+		Name: valueOf
+			Parameters: [C
+			Parameters: int
+			Parameters: int
+			Return type: java.lang.String
+			Modifiers: public static
+		Name: valueOf
+			Parameters: [C
+			Return type: java.lang.String
+			Modifiers: public static
+		Name: valueOf
+			Parameters: java.lang.Object
+			Return type: java.lang.String
+			Modifiers: public static
+		Name: valueOf
+			Parameters: char
+			Return type: java.lang.String
+			Modifiers: public static
+		Name: valueOf
+			Parameters: int
+			Return type: java.lang.String
+			Modifiers: public static
+		Name: valueOf
+			Parameters: long
+			Return type: java.lang.String
+			Modifiers: public static
+		Name: charAt
+			Parameters: int
+			Return type: char
+			Modifiers: public
+		Name: checkBounds
+			Parameters: [B
+			Parameters: int
+			Parameters: int
+			Return type: void
+			Modifiers: private static
+		Name: codePointAt
+			Parameters: int
+			Return type: int
+			Modifiers: public
+		Name: codePointBefore
+			Parameters: int
+			Return type: int
+			Modifiers: public
+		Name: codePointCount
+			Parameters: int
+			Parameters: int
+			Return type: int
+			Modifiers: public
+		Name: compareToIgnoreCase
+			Parameters: java.lang.String
+			Return type: int
+			Modifiers: public
+		Name: concat
+			Parameters: java.lang.String
+			Return type: java.lang.String
+			Modifiers: public
+		Name: contains
+			Parameters: java.lang.CharSequence
+			Return type: boolean
+			Modifiers: public
+		Name: contentEquals
+			Parameters: java.lang.StringBuffer
+			Return type: boolean
+			Modifiers: public
+		Name: contentEquals
+			Parameters: java.lang.CharSequence
+			Return type: boolean
+			Modifiers: public
+		Name: copyValueOf
+			Parameters: [C
+			Parameters: int
+			Parameters: int
+			Return type: java.lang.String
+			Modifiers: public static
+		Name: copyValueOf
+			Parameters: [C
+			Return type: java.lang.String
+			Modifiers: public static
+		Name: endsWith
+			Parameters: java.lang.String
+			Return type: boolean
+			Modifiers: public
+		Name: equalsIgnoreCase
+			Parameters: java.lang.String
+			Return type: boolean
+			Modifiers: public
+		Name: format
+			Parameters: java.util.Locale
+			Parameters: java.lang.String
+			Parameters: [Ljava.lang.Object;
+			Return type: java.lang.String
+			Modifiers: public static transient
+		Name: format
+			Parameters: java.lang.String
+			Parameters: [Ljava.lang.Object;
+			Return type: java.lang.String
+			Modifiers: public static transient
+		Name: getBytes
+			Return type: [B
+			Modifiers: public
+		Name: getBytes
+			Exception thrown: java.io.UnsupportedEncodingException
+			Parameters: java.lang.String
+			Return type: [B
+			Modifiers: public
+		Name: getBytes
+			Parameters: int
+			Parameters: int
+			Parameters: [B
+			Parameters: int
+			Return type: void
+			Modifiers: public
+		Name: getBytes
+			Parameters: java.nio.charset.Charset
+			Return type: [B
+			Modifiers: public
+		Name: getChars
+			Parameters: [C
+			Parameters: int
+			Return type: void
+			Modifiers: 
+		Name: getChars
+			Parameters: int
+			Parameters: int
+			Parameters: [C
+			Parameters: int
+			Return type: void
+			Modifiers: public
+		Name: hash32
+			Return type: int
+			Modifiers: 
+		Name: indexOfSupplementary
+			Parameters: int
+			Parameters: int
+			Return type: int
+			Modifiers: private
+		Name: intern
+			Return type: java.lang.String
+			Modifiers: public native
+		Name: isEmpty
+			Return type: boolean
+			Modifiers: public
+		Name: lastIndexOf
+			Parameters: int
+			Return type: int
+			Modifiers: public
+		Name: lastIndexOf
+			Parameters: int
+			Parameters: int
+			Return type: int
+			Modifiers: public
+		Name: lastIndexOf
+			Parameters: java.lang.String
+			Parameters: int
+			Return type: int
+			Modifiers: public
+		Name: lastIndexOf
+			Parameters: java.lang.String
+			Return type: int
+			Modifiers: public
+		Name: lastIndexOf
+			Parameters: [C
+			Parameters: int
+			Parameters: int
+			Parameters: [C
+			Parameters: int
+			Parameters: int
+			Parameters: int
+			Return type: int
+			Modifiers: static
+		Name: lastIndexOfSupplementary
+			Parameters: int
+			Parameters: int
+			Return type: int
+			Modifiers: private
+		Name: length
+			Return type: int
+			Modifiers: public
+		Name: matches
+			Parameters: java.lang.String
+			Return type: boolean
+			Modifiers: public
+		Name: offsetByCodePoints
+			Parameters: int
+			Parameters: int
+			Return type: int
+			Modifiers: public
+		Name: regionMatches
+			Parameters: int
+			Parameters: java.lang.String
+			Parameters: int
+			Parameters: int
+			Return type: boolean
+			Modifiers: public
+		Name: regionMatches
+			Parameters: boolean
+			Parameters: int
+			Parameters: java.lang.String
+			Parameters: int
+			Parameters: int
+			Return type: boolean
+			Modifiers: public
+		Name: replace
+			Parameters: char
+			Parameters: char
+			Return type: java.lang.String
+			Modifiers: public
+		Name: replace
+			Parameters: java.lang.CharSequence
+			Parameters: java.lang.CharSequence
+			Return type: java.lang.String
+			Modifiers: public
+		Name: replaceAll
+			Parameters: java.lang.String
+			Parameters: java.lang.String
+			Return type: java.lang.String
+			Modifiers: public
+		Name: replaceFirst
+			Parameters: java.lang.String
+			Parameters: java.lang.String
+			Return type: java.lang.String
+			Modifiers: public
+		Name: split
+			Parameters: java.lang.String
+			Return type: [Ljava.lang.String;
+			Modifiers: public
+		Name: split
+			Parameters: java.lang.String
+			Parameters: int
+			Return type: [Ljava.lang.String;
+			Modifiers: public
+		Name: startsWith
+			Parameters: java.lang.String
+			Return type: boolean
+			Modifiers: public
+		Name: startsWith
+			Parameters: java.lang.String
+			Parameters: int
+			Return type: boolean
+			Modifiers: public
+		Name: subSequence
+			Parameters: int
+			Parameters: int
+			Return type: java.lang.CharSequence
+			Modifiers: public
+		Name: substring
+			Parameters: int
+			Parameters: int
+			Return type: java.lang.String
+			Modifiers: public
+		Name: substring
+			Parameters: int
+			Return type: java.lang.String
+			Modifiers: public
+		Name: toCharArray
+			Return type: [C
+			Modifiers: public
+		Name: toLowerCase
+			Return type: java.lang.String
+			Modifiers: public
+		Name: toLowerCase
+			Parameters: java.util.Locale
+			Return type: java.lang.String
+			Modifiers: public
+		Name: toUpperCase
+			Parameters: java.util.Locale
+			Return type: java.lang.String
+			Modifiers: public
+		Name: toUpperCase
+			Return type: java.lang.String
+			Modifiers: public
+		Name: trim
+			Return type: java.lang.String
+			Modifiers: public
