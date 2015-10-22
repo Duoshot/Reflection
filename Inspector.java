@@ -9,7 +9,11 @@ ID: 10053193
 Date: October 21, 2015
 ========================================================================*/
 
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.*;
 import java.lang.reflect.Method;
@@ -22,29 +26,28 @@ import java.util.*;
 public class Inspector {
 	
 	//print to file
-	private PrintWriter printer;
+	private FileWriter fw;
+	private BufferedWriter bw;
+	File file = new File("test.txt");
 	
-	public Inspector() 
+	public Inspector()
 	{ 
-		try {
-			printer = new PrintWriter("output.txt");
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 //-----------------------------------------------------------------
-	public void inspect(Object obj, boolean recursive)
+	public void inspect(Object obj, boolean recursive) throws IOException
 	{
 		Vector objectsToInspect = new Vector();
 		Class ObjClass = obj.getClass();
+		fw = new FileWriter(file.getAbsoluteFile(), true);
+		bw = new BufferedWriter(fw);
 		inspect(obj, ObjClass, recursive);
-		printer.close();
+		bw.close();
+		
 	}
 
 //------------------------------------------------------------------------
-	public void inspect(Object obj, Class ObjClass, boolean recursive)
+	public void inspect(Object obj, Class ObjClass, boolean recursive) throws IOException
 	{
 		//if class is an array, inspect array
 		if(ObjClass.isArray())
@@ -58,24 +61,23 @@ public class Inspector {
 	}
 	
 //-------------------------------------------------------------------------
-	private void inspectClass(Object obj, Class ObjClass, boolean recursive)
+	private void inspectClass(Object obj, Class ObjClass, boolean recursive) throws IOException
 	{
 		Vector objectsToInspect = new Vector();
 		
 		Class superClass = ObjClass.getSuperclass();
 		Class[] superInterface = ObjClass.getInterfaces();
 		
-		printer.println("");
-		printer.println("	Inside inspector: " + ObjClass + " (recursive = "+recursive+")");
-	
+		bw.write("" + "\n");
+		bw.write("	Inside inspector: " + ObjClass + " (recursive = "+recursive+")" + "\n");
 		//name
 		String className = ObjClass.getName();
-		printer.println("");
-		printer.println("@   Current Class: " + className);
+		bw.write("");
+		bw.write("@   Current Class: " + className);
 		
 		//get first super class
 		if(superClass != null)
-			printer.println("	Immediate Super Class: " + superClass.getName());
+			bw.write("	Immediate Super Class: " + superClass.getName() + "\n");
 		
 		//inspect constructors
 		inspectConstructors(ObjClass);
@@ -84,8 +86,8 @@ public class Inspector {
 		inspectInterfaces(ObjClass);
 		
 		//inspect fields
-		printer.println("");
-		printer.println("\tFields: ");
+		bw.write("" + "\n");
+		bw.write("\tFields: " + "\n");
 		inspectFields(obj, ObjClass, objectsToInspect);
 	
 		//inspect methods
@@ -97,10 +99,10 @@ public class Inspector {
 			
 			if(superClass != null)
 			{
-				printer.println("");
-				printer.println("~~~~~~~~~~~~~~~~~~~~");
-				printer.println("SuperClass of: " + className);
-				printer.println("~~~~~~~~~~~~~~~~~~~~");
+				bw.write("" + "\n");
+				bw.write("~~~~~~~~~~~~~~~~~~~~" + "\n");
+				bw.write("SuperClass of: " + className + "\n");
+				bw.write("~~~~~~~~~~~~~~~~~~~~" + "\n");
 				inspect(obj, superClass, recursive);	//recursively run on superclasses
 			}
 			
@@ -108,10 +110,10 @@ public class Inspector {
 			{
 				for(int i = 0; i < superInterface.length;i++)
 				{
-					printer.println("");
-					printer.println("~~~~~~~~~~~~~~~~~~~~");
-					printer.println("SuperInterface of: " + className);
-					printer.println("~~~~~~~~~~~~~~~~~~~~");
+					bw.write("" + "\n");
+					bw.write("~~~~~~~~~~~~~~~~~~~~" + "\n");
+					bw.write("SuperInterface of: " + className + "\n");
+					bw.write("~~~~~~~~~~~~~~~~~~~~" + "\n");
 					inspect(obj, superInterface[i], recursive);	//recursively run on superinterfaces
 				}
 			}
@@ -120,18 +122,18 @@ public class Inspector {
 	}
 	
 //----------------------------------------------------------------------
-	private void inspectArray(Object obj, Class ObjClass, boolean recursive)
+	private void inspectArray(Object obj, Class ObjClass, boolean recursive) throws IOException
 	{
-		printer.println("\tARRAY");
-		printer.println("\tArray Length: " + Array.getLength(obj));
+		bw.write("\tARRAY" + "\n");
+		bw.write("\tArray Length: " + Array.getLength(obj) + "\n");
 		if(Array.getLength(obj)>0)
 		{
 			
 			for(int i = 0; i < Array.getLength(obj); i++)
 			{
 				Object arrayObj = Array.get(obj, i);
-				printer.println("");
-				printer.println("\t\tArray Element " + i + ": " + arrayObj);
+				bw.write("" + "\n");
+				bw.write("\t\tArray Element " + i + ": " + arrayObj + "\n");
 				if(arrayObj != null)
 				{
 					
@@ -140,7 +142,7 @@ public class Inspector {
 				}
 				else
 				{
-					printer.println("\t\tArray Element is null");
+					bw.write("\t\tArray Element is null" + "\n");
 				}
 				
 			}
@@ -148,10 +150,10 @@ public class Inspector {
 	}
 
 /*--------------------------------------------------------------------*/
-	private void inspectInterfaces(Class ObjClass)
+	private void inspectInterfaces(Class ObjClass) throws IOException
 	{
-		printer.println("");
-		printer.println("\tInterface(s): ");
+		bw.write("" + "\n");
+		bw.write("\tInterface(s): " + "\n");
 		
 	    Class[] interfaces = ObjClass.getInterfaces();	//get interfaces
 		if(interfaces.length > 0)
@@ -159,21 +161,21 @@ public class Inspector {
 						
 			for(int i = 0; i < interfaces.length; i++)
 			{
-				printer.println("\t\t" + interfaces[i]);
+				bw.write("\t\t" + interfaces[i] + "\n");
 			}
 		}
 		else
 		{
-			printer.println("\t\tThis class has no interfaces");
+			bw.write("\t\tThis class has no interfaces" + "\n");
 		}
 		
 	}
 	
 /*-----------------------------------------------------------------------------*/
-	private void inspectMethods(Class ObjClass)
+	private void inspectMethods(Class ObjClass) throws IOException
 	{
-		printer.println("");
-		printer.println("\tMethod(s): ");
+		bw.write("" + "\n");
+		bw.write("\tMethod(s): " + "\n");
 		
 		Method[] methods = ObjClass.getDeclaredMethods();
 		if(methods.length>0)
@@ -183,43 +185,43 @@ public class Inspector {
 				methods[i].setAccessible(true);
 			
 				//method name
-				printer.println("\t\tName: " + methods[i].getName());
+				bw.write("\t\tName: " + methods[i].getName() + "\n");
 			
 				//exceptions thrown
 				Class[] exception = methods[i].getExceptionTypes();
 				for(int j = 0; j < exception.length; j++)
 				{
-					printer.println("\t\t\tException thrown: " + exception[j].getName());
+					bw.write("\t\t\tException thrown: " + exception[j].getName() + "\n");
 				}
 			
 				//parameter types
 				Class[] parameters = methods[i].getParameterTypes();
 				for(int k = 0; k < parameters.length; k++)
 				{
-					printer.println("\t\t\tParameters: " + parameters[k].getName());
+					bw.write("\t\t\tParameters: " + parameters[k].getName() + "\n");
 				}
 			
 				//return type
 				Class returnName = methods[i].getReturnType();
-				printer.println("\t\t\tReturn type: " + returnName.getName());
+				bw.write("\t\t\tReturn type: " + returnName.getName() + "\n");
 			
 				//Modifier
 				int modifier = methods[i].getModifiers();
-				printer.println("\t\t\tModifiers: " + Modifier.toString(modifier));
+				bw.write("\t\t\tModifiers: " + Modifier.toString(modifier) + "\n");
 			
 			}
 		}
 		else
 		{
-			printer.println("\t\tThis class has no methods");
+			bw.write("\t\tThis class has no methods" + "\n");
 		}
 	}
 	
 //--------------------------------------------------------------------------
-	private void inspectConstructors(Class ObjClass)
+	private void inspectConstructors(Class ObjClass) throws IOException
 	{
-		printer.println("");
-		printer.println("\tConstructor(s): ");
+		bw.write("" + "\n");
+		bw.write("\tConstructor(s): " + "\n");
 		
 		Constructor[] constructors = ObjClass.getDeclaredConstructors();
 		
@@ -231,45 +233,45 @@ public class Inspector {
 			
 				//name
 				String cName = constructors[i].getName();
-				printer.println("\t\tName: " + cName);
+				bw.write("\t\tName: " + cName + "\n");
 			
 				//parameters
 				Class[] parameters = constructors[i].getParameterTypes();
 				for(int j = 0; j < parameters.length; j++)
 				{
-					printer.println("\t\t\tParameters: " + parameters[j].getName());
+					bw.write("\t\t\tParameters: " + parameters[j].getName() + "\n");
 				}
 				//modifiers
 				int modifier = constructors[i].getModifiers();
-				printer.println("\t\t\tModifiers: " + Modifier.toString(modifier));
+				bw.write("\t\t\tModifiers: " + Modifier.toString(modifier) + "\n");
 			}
 		}
 		else
 		{
-			printer.println("\t\tThis class has no Constructors");
+			bw.write("\t\tThis class has no Constructors" + "\n");
 		}
 	}
 	
 //-----------------------------------------------------------
-	private void inspectFieldClasses(Object obj, Class ObjClass, Vector objectsToInspect, boolean recursive)
+	private void inspectFieldClasses(Object obj, Class ObjClass, Vector objectsToInspect, boolean recursive) throws IOException
 	{		
 	    if(objectsToInspect.size() > 0 )
 	    {
-	    	printer.println("");
-	    	printer.println("---- Inspecting Field Classes ----");
+	    	bw.write("" + "\n");
+	    	bw.write("---- Inspecting Field Classes ----" + "\n");
 	    }
 		
 	    Enumeration e = objectsToInspect.elements();
 	    while(e.hasMoreElements())
 	    {
 	    	Field f = (Field) e.nextElement();
-	    	printer.println("");
-	    	printer.println("******************");
-	    	printer.println("Inspecting Field: " + f.getName() );
+	    	bw.write("" + "\n");
+	    	bw.write("******************" + "\n");
+	    	bw.write("Inspecting Field: " + f.getName() + "\n");
 			
 	    	try
 			{
-	    		printer.println("******************");
+	    		bw.write("******************" + "\n");
 	    		inspect( f.get(obj) , f.get(obj).getClass(), recursive);
 	    		
 			}
@@ -277,7 +279,7 @@ public class Inspector {
 		}
 	}
 //-----------------------------------------------------------
-	private void inspectFields(Object obj, Class ObjClass, Vector objectsToInspect)
+	private void inspectFields(Object obj, Class ObjClass, Vector objectsToInspect) throws IOException
 	{
 		Field[] fields = ObjClass.getDeclaredFields();
 		
@@ -291,18 +293,18 @@ public class Inspector {
 					objectsToInspect.addElement( fields[i] );
 	    	
 				//name
-				printer.println("\t\tName: " + fields[i].getName());
+				bw.write("\t\tName: " + fields[i].getName() + "\n");
 	    	
 				//declaring class
-				printer.println("\t\t\tDeclaring Class: " + fields[i].getDeclaringClass().getName());
+				bw.write("\t\t\tDeclaring Class: " + fields[i].getDeclaringClass().getName() + "\n");
 	    	
 				//type
 				Class fType = fields[i].getType();
-				printer.println("\t\t\tType: " + fType.getName());
+				bw.write("\t\t\tType: " + fType.getName() + "\n");
 			
 				//modifiers
 				int fMod = fields[i].getModifiers();
-				printer.println("\t\t\tModifiers: " + Modifier.toString(fMod));
+				bw.write("\t\t\tModifiers: " + Modifier.toString(fMod) + "\n");
 			
 				Object value = null;
 				try
@@ -311,12 +313,12 @@ public class Inspector {
 				}
 				catch(Exception e) {}    
 				//value
-				printer.println("\t\t\tValue: " + value);
+				bw.write("\t\t\tValue: " + value + "\n");
 			}
 		}
 		else
 		{
-			printer.println("\t\tThis class has no Fields");
+			bw.write("\t\tThis class has no Fields" + "\n");
 		}
 	}
 
