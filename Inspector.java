@@ -28,7 +28,7 @@ public class Inspector {
 	//print to file
 	private FileWriter fw;
 	private BufferedWriter bw;
-	File file = new File("NonRecursiveOutput.txt");	//CHANGE THIS NAME FOR DIFFERENT FILE.
+	File file = new File("test.txt");	//CHANGE THIS NAME FOR DIFFERENT FILE.
 	//BUFFERED WRITER CONTINUOUSLY WRITES. SO YOU HAVE TO DELETE THE OLD FILE IF YOU WANT A NEW ONE
 	
 	public Inspector()
@@ -127,6 +127,10 @@ public class Inspector {
 	{
 		bw.write("\tARRAY" + "\n");
 		bw.write("\tArray Length: " + Array.getLength(obj) + "\n");
+		
+		Class componentType = ObjClass.getComponentType();
+		bw.write("\tComponentType: " + componentType.getName() + "\n");
+		
 		if(Array.getLength(obj)>0)
 		{
 			
