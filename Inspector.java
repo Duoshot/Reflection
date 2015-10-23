@@ -154,7 +154,7 @@ public class Inspector {
 		//bw.write("\tArray Length: " + Array.getLength(obj) + "\n");
 		
 		System.out.print("\tARRAY" + "\n");
-		//System.out.print("\tArray Length: " + Array.getLength(obj) + "\n");
+		System.out.print("\tArray Length: " + Array.getLength(obj) + "\n");
 		
 		Class componentType = ObjClass.getComponentType();
 		//bw.write("\tComponentType: " + componentType.getName() + "\n");
@@ -388,6 +388,7 @@ public class Inspector {
 				//bw.write("\t\t\tValue: " + value + "\n");
 				if(fType.isArray())
 				{
+					System.out.print("\t\t\tArray Length: " + Array.getLength(value) + "\n");
 					for(int k = 0; k < Array.getLength(value); k++)
 					{
 						System.out.println("\t\t\tArray Element " + k + ": "+ Array.get(value, k));
