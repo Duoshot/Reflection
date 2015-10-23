@@ -395,7 +395,7 @@ public class Inspector {
 					}
 				}
 				else
-					System.out.println("\t\t\tValue: " + value);
+					System.out.print("\t\t\tValue: " + value + "\n");
 				
 			}
 			
